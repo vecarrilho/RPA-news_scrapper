@@ -1,4 +1,5 @@
 import time
+import xlsxwriter
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
@@ -12,16 +13,30 @@ options.add_argument("start-maximized")
 
 driver = webdriver.Chrome(options=options)
 
-driver.get("https://www.aljazeera.com/")
+url = "https://www.aljazeera.com/search/"
+new_url = url + 'trump'
+new_url = new_url + '?sort=date'
+# new_url = new_url + '?sort=relevance'
+
+driver.get(new_url)
 
 # wait for page to load
-# element = WebDriverWait(driver, 120).until(EC.presence_of_element_located((By.XPATH, "//button//span[contains(text(), 'Click here to search')]")))
-# time.sleep(5)
+element = WebDriverWait(driver, 120).until(EC.presence_of_element_located((By.XPATH, "//button[@class='show-more-button grid-full-width']")))
 # print(element.is_displayed())
 
-search_field = driver.find_element(By.XPATH, "//span[contains(text(), 'Click here to search')]/ancestor::button")
-search_field.click()
-# search_field.send_keys('teste')
-# time.sleep(5)
+# Click show more to load more news
+# show_more_button = driver.find_element(By.XPATH, "//button[@class='show-more-button grid-full-width']")
+# show_more_button.click()
 
-# print(element)
+# Write the informations into the worksheet
+# workbook = xlsxwriter.Workbook('planilha.xlsx')
+# worksheet = workbook.add_worksheet("Minha Planilha")
+
+# worksheet.write('A1', 'Nome')
+# worksheet.write('B1', 'Idade')
+# worksheet.write('A2', 'João')
+# worksheet.write('B2', 25)
+
+# workbook.close()
+
+time.sleep(10)
