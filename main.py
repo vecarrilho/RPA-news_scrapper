@@ -36,10 +36,10 @@ driver.get(url)
 # wait for page to load
 # element = WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, "//input[@class='search-results-module-input']")))
 
-search_value = input('Search Phrase: ')
+# search_value = input('Search Phrase: ')
 search_input = driver.find_element(By.XPATH, "//input[@class='search-results-module-input']")
 search_input.click()
-search_input.send_keys(search_value)
+search_input.send_keys('Trump')
 button_submit = driver.find_element(By.XPATH, "//button[@class='button submit-button']")
 button_submit.click()
 
