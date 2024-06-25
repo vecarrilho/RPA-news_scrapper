@@ -33,12 +33,12 @@ cd your/application
 
 Execute the command to start-action
 ```sh
-action-server start --expose --port=8080
+action-server start --port=8020
 ```
 
 Test it
 ```sh
-localhot:8080
+localhost:8020
 ```
 
 # XLSX file
