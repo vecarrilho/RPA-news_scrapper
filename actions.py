@@ -8,7 +8,7 @@ def news_scrapper(search_sentence: str, topic: str) -> str:
 
     Args:
         search_sentence (str): The sentence that will be search in LA Times
-        topic (str): The topic to filter the search in LA Times [World & Nation, Opinion, Politics, Sports, Business]
+        topic (str): The topic to filter the search in LA Times [World & Nation, Opinion, Politics, Sports, Business, null]
 
     """
 
@@ -37,8 +37,13 @@ def news_scrapper(search_sentence: str, topic: str) -> str:
     search_input = driver.find_element(By.XPATH, "//input[@class='search-results-module-input']")
     search_input.click()
     search_input.send_keys(search_sentence)
-    search_topic = driver.find_element(By.XPATH, "//label[@class='checkbox-input-label']//span[text()='"+topic+"']")
-    search_topic.click()
+
+    # Verifies if search_topic is null
+    if topic != "null":
+        search_topic = driver.find_element(By.XPATH, "//label[@class='checkbox-input-label']//span[text()='"+topic+"']")
+        search_topic.click()
+
+
     button_submit = driver.find_element(By.XPATH, "//button[@class='button submit-button']")
     button_submit.click()
 
