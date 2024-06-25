@@ -40,3 +40,7 @@ Test it
 ```sh
 localhot:8080
 ```
+
+# XLSX file
+
+After executing the research, the xlsx file will be created in you application folder
