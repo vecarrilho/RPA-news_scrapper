@@ -8,7 +8,7 @@ API made to search a sentence in a news website, generating a xlsx file with tit
 
 ### Steps
 
-Install Robocorp server actions
+Install Robocorp server actions.
 ```sh
 #macOS
 brew update
